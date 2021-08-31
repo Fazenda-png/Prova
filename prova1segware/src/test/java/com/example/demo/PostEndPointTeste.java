@@ -83,20 +83,20 @@ public class PostEndPointTeste {
 				.andExpect(status().isOk());
 	}
 
-	@Test
-	void like() throws Exception {
-		Post post = new Post("123456789", "Teste", "Testes unitatios usando JUnit", 0, "29/08/2021");
-
-		given(postRepository.save(post)).willReturn(post);
-		
-		postservices.like(post);
-		
-		ObjectMapper mapper = new ObjectMapper();
-
-		String json = mapper.writeValueAsString(post);
-		
-		mockMvc.perform(MockMvcRequestBuilders.patch("/posts/update/123456789").contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.APPLICATION_JSON).content(json).characterEncoding("UTF-8")).andExpect(MockMvcResultMatchers.status().isOk());
-	}
+//	@Test
+//	void like() throws Exception {
+//		Post post = new Post("123456789", "Teste", "Testes unitatios usando JUnit", 0, "29/08/2021");
+//
+//		given(postRepository.save(post)).willReturn(post);
+//		
+//		postservices.like(post);
+//		
+//		ObjectMapper mapper = new ObjectMapper();
+//
+//		String json = mapper.writeValueAsString(post);
+//		
+//		mockMvc.perform(MockMvcRequestBuilders.patch("/posts/update/123456789").contentType(MediaType.APPLICATION_JSON)
+//				.accept(MediaType.APPLICATION_JSON).content(json).characterEncoding("UTF-8")).andExpect(MockMvcResultMatchers.status().isOk());
+//	}
 
 }
